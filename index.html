@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>League of Legends Gallery</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
 </head>
 
 <body>
     <div class="container-fluid bg-light mt-2 p-3">
         <div class="col">
-            <div class="row-12 text-black text-center" >
-                <h1 class="text-uppercase" style="font-size: 24px;">League of Legends</h1>
+            <div class="row-12 text-black text-center">
+                <img src="Logo.avif" alt="League of Legends Logo" class="img-fluid" style="max-height: 150px" />
             </div>
         </div>
     </div>
@@ -21,31 +21,65 @@
     <div class="container-fluid bg-dark p-5">
         <div class="col">
             <div class="row-12 text-white text-center">
-                    <h1>Champions Gallery</h1>
+                <h1>Champions Gallery</h1>
             </div>
         </div>
     </div>
 
+    <div class="container">
+        <div class="col">
+            <div class="row mt-4" id="contents"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get reference to content div
+        var contents = document.getElementById("contents");
+
+        // Function to fetch champions data
+        const getChampions = async () => {
+
+            // Fetch champion data from Riot Games API
+            const response = await fetch(
+                "https://ddragon.leagueoflegends.com/cdn/15.24.1/data/en_US/champion.json"
+            );
+
+            // Wait for the response and parse it as JSON
+            const data = await response.json();
 
 
+            // Extract champion details from object to a array
+            const champions = Object.values(data.data);
 
+            champions.forEach(champion => {
 
+                const imgURL = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
 
+                // Create card element
+                contents.innerHTML += `
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow my-3">
+              
+                    <div class="ratio ratio-1x1">
+                        <img src="${imgURL}" class="card-img-top" style="object-fit: cover; object-position: top center;">
+                    </div>
+              
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">${champion.name}</h5>
+                        <p class="card-text text-capitalize text-muted fst-italic">${champion.title}</p>
+                    </div>
+              
+                  </div>
+                </div>
+            `;
+            });
+        }
 
+        getChampions();
 
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 </body>
 
