@@ -1,0 +1,146 @@
+/* Beaufort for LOL Font Family */
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-Regular.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-Italic.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-Light.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-LightItalic.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-Medium.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-MediumItalic.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-Bold.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-BoldItalic.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-Heavy.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('Assets/fonts/BeaufortforLOL-HeavyItalic.woff2') format('woff2'),
+        url('Assets/fonts/BeaufortforLOL-HeavyItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Spiegel Font Family */
+@font-face {
+    font-family: 'Spiegel';
+    src: url('Assets/fonts/Spiegel-Regular.woff2') format('woff2'),
+        url('Assets/fonts/Spiegel-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    src: url('Assets/fonts/Spiegel-RegularItalic.woff2') format('woff2'),
+        url('Assets/fonts/Spiegel-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    src: url('Assets/fonts/Spiegel-SemiBold.woff2') format('woff2'),
+        url('Assets/fonts/Spiegel-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    src: url('Assets/fonts/Spiegel-SemiBoldItalic.woff2') format('woff2'),
+        url('Assets/fonts/Spiegel-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    src: url('Assets/fonts/Spiegel-Bold.woff2') format('woff2'),
+        url('Assets/fonts/Spiegel-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    src: url('Assets/fonts/Spiegel-BoldItalic.woff2') format('woff2'),
+        url('Assets/fonts/Spiegel-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+

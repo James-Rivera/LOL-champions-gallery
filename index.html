@@ -7,18 +7,45 @@
     <title>League of Legends Gallery</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <div class="container-fluid bg-light mt-2 p-3">
-        <div class="col">
-            <div class="row-12 text-black text-center">
-                <img src="Logo.avif" alt="League of Legends Logo" class="img-fluid" style="max-height: 150px" />
-            </div>
-        </div>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <div class="container-fluid bg-dark p-5">
+        <div class="px-5 py-3 w-100 d-flex align-items-center">
+
+            <a class="navbar-brand" href="#">
+                <img src="Assets/img/logo.svg" alt="League of Legends" class="d-inline-block align-top logo-size">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-lg-5 mb-2 mb-lg-0" style="margin-left: 20px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HOME </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#">CHAMPIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">RUNETERRA</a>
+                    </li>
+                </ul>
+            </div>
+        <button class="btn btn-primary px-4">PLAY NOW</button>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-light p-5">
         <div class="col">
             <div class="row-12 text-white text-center">
                 <h1>Champions Gallery</h1>
@@ -47,31 +74,27 @@
             // Wait for the response and parse it as JSON
             const data = await response.json();
 
-
             // Extract champion details from object to a array
             const champions = Object.values(data.data);
 
             champions.forEach(champion => {
+                // We use the 'loading' asset for vertical cards
+                const imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
 
-                const imgURL = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
-
-                // Create card element
                 contents.innerHTML += `
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card shadow my-3">
-              
-                    <div class="ratio ratio-1x1">
-                        <img src="${imgURL}" class="card-img-top" style="object-fit: cover; object-position: top center;">
+                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                        <div class="client-card">
+                            <img src="${imgUrl}" alt="${champion.name}" loading="lazy">
+                            
+                            <div class="overlay"></div>
+
+                            <div class="card-text-content">
+                                <h3 class="champion-name">${champion.name}</h3>
+                                <p class="champion-title">${champion.title}</p>
+                            </div>
+                        </div>
                     </div>
-              
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">${champion.name}</h5>
-                        <p class="card-text text-capitalize text-muted fst-italic">${champion.title}</p>
-                    </div>
-              
-                  </div>
-                </div>
-            `;
+                `;
             });
         }
 
