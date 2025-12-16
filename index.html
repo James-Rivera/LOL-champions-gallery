@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>League of Legends Gallery</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="Assets/favicon/site.webmanifest">
     </head>
-    
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
@@ -27,7 +27,7 @@
                 <img src="Assets/img/logo.svg" alt="League of Legends" class="d-inline-block align-top logo-size">
             </a>
 
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -59,7 +59,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5" id="hero-section">
         <div class="row">
             <div class="col-12 hero-background d-flex flex-column align-items-center justify-content-center">
             
@@ -92,6 +92,8 @@
         </div>
     </div>
 
+    <div class="container" id="scrollhere"></div>
+
     <div class="container-league">
 
         <div class="tools d-flex justify-content-between align-items-center">
@@ -104,53 +106,150 @@
             </div>
 
             <div class="pagination">
-                <button class="pagination-button">&lt;</button>
-                <span class="pagination -info">1-20 of 170</span>
-                <button class="pagination   -button">&gt;</button>
+                <button class="pagination-button" data-dir="prev"><img src="Assets/img/previous.svg" alt="Previous"></button>
+                <span class="pagination-info pageInfo">1-20 of 170</span>
+                <button class="pagination-button" data-dir="next"><img src="Assets/img/next.svg" alt="Next"></button>
             </div>
 
         </div>
-
+        
+        <!-- Champion Cards-->>
         <div class="row mt-5" id="contents">
+        </div>
+
+        <div class="popover-card" id="hoverCard"></div>
+
+        <!-- Modal for mobile/tablet -->
+        <div class="modal fade" id="championModal" tabindex="-1" role="dialog" aria-labelledby="championModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div id="modalHeader" class="w-100"></div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #c8aa6e; opacity: 1;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination d-flex justify-content-center align-items-center mt-5">
+            <button class="pagination-button" data-dir="prev"><img src="Assets/img/previous.svg" alt="Previous"></button>
+            <span class="pagination-info pageInfo">1-20 of 170</span>
+            <button class="pagination-button" data-dir="next"><img src="Assets/img/next.svg" alt="Next"></button>
         </div>
 
     </div>
 
-    <div class="footer container-fluid bg-dark">
+    <div class="footer container-fluid mt-5 mb-0 p-5">
         <div class="row">
-            <div class="col-12"></div>
+            <div class="col-12">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="logo-container d-flex justify-content-center align-items-center mb-1">
+                        <a href="https://www.leagueoflegends.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="Assets/img/logo.svg" alt="League of Legends" class="footer-logo-size mx-3">
+                        </a>
+
+                        <a href="https://www.riotgames.com/en" target="_blank" rel="noopener noreferrer">
+                            <img src="Assets/img/riot_logo.svg" alt="Riot" class="riot-logo-size mx-3">
+                        </a>
+       
+                        <a href="https://james-rivera.github.io/" target="_blank" rel="noopener noreferrer">
+                            <img src="Assets/img/Rivera_logo 1.svg" alt="Avera Visuals" class="designer-logo-size mx-3">
+                        </a>
+                     </div>
+
+                    <div class="gold-line my-2">
+                        <img src="Assets/img/gold-line.svg" alt="Gold Line" class="gold-line-img">
+                    </div>
+
+                    <div class="container-footer text-center mt-4 d-flex flex-column justify-content-center align-items-center" style="max-width: 700px; margin: 0 auto;">
+                        <span class="text-main mb-4">Designed & Developed by <a style="color:#c8aa6e;">AVERA</a></span>
+                        <p class="text-details mt-2">
+                            This website is a student project created for educational purposes only and is not affiliated with Riot Games. 
+                        </p>
+                        <span class="text-details">                           
+                             ™ & © 2025 Riot Games, Inc. League of Legends and all related logos, characters, names, and distinctive likenesses 
+                            thereof are the exclusive property of Riot Games, Inc. All rights reserved.
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Get reference to content div
-        var contents = document.getElementById("contents");
+        // this stores champion data into a array
+        let allChampions = [];
+        
+        // page tracker
+        let currentPage = 1;
+        
+        const championsPerPage = 20;
 
-        // Function to fetch champions data
-        const getChampions = async () => {
+        const roleIcons = {
+            "Assassin": "Assets/class/icon-assassin.png",
+            "Fighter": "Assets/class/icon-fighter.png",
+            "Mage": "Assets/class/icon-mage.png",
+            "Marksman": "Assets/class/icon-marksman.png",
+            "Support": "Assets/class/icon-support.png",
+            "Tank": "Assets/class/icon-tank.png"
+        };
 
-            // Fetch champion data from Riot Games API
-            const response = await fetch(
-                "https://ddragon.leagueoflegends.com/cdn/15.24.1/data/en_US/champion.json"
-            );
+        // cache for full lores
+        const loreCache = {};
 
-            // Wait for the response and parse it as JSON
-            const data = await response.json();
+        // fetch data from the API
+        async function getChampions() {
+            try {
+                const response = await fetch (
+                    "https://ddragon.leagueoflegends.com/cdn/15.24.1/data/en_US/champion.json"
+                );
+                
+                const wholeFile = await response.json();
 
-            // Extract champion details from object to a array
-            const champions = Object.values(data.data);
+                allChampions = Object.values(wholeFile.data);
 
-            champions.forEach(champion => {
-                // We use the 'loading' asset for vertical cards
-                const imgUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
+                showPage(currentPage);
 
-                contents.innerHTML += `
+            } catch (error) {
+                console.error("Error fetching champions:", error);
+            }
+            
+        }
+
+        //display the page
+        function showPage(pageNumber) {
+            const container = document.getElementById("contents");
+            container.innerHTML = ""; 
+            
+            //Formula to get champions
+            const startIndex = (pageNumber - 1) * championsPerPage;
+            const endIndex = startIndex + championsPerPage;
+            const championsToShow = allChampions.slice(startIndex, endIndex);
+            
+            //displays the cards
+            championsToShow.forEach(champion => {
+                const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
+                const name = champion.name || "";
+                const title = champion.title || "";
+                const role = (champion.tags && champion.tags[0]) || "";
+                const blurb = champion.blurb || "";
+                const escapedBlurb = blurb.replace(/"/g, '&quot;');
+                
+                const html = `
                     <div class="col-12 col-md-6 col-lg-3 mb-4">
-                        <div class="client-card">
-                            <img src="${imgUrl}" alt="${champion.name}" loading="lazy">
-                            
-                            <div class="overlay"></div>
+                        <div class="client-card" 
+                            data-id="${champion.id}"
+                            data-name="${name}" 
+                            data-title="${title}" 
+                            data-blurb="${escapedBlurb}"
+                            data-role="${role}">
 
+                            <img src="${imageUrl}" alt="${champion.name}" loading="lazy">
+                            <div class="overlay"></div>
                             <div class="card-text-content">
                                 <h3 class="champion-name">${champion.name}</h3>
                                 <p class="champion-title">${champion.title}</p>
@@ -158,15 +257,295 @@
                         </div>
                     </div>
                 `;
+                
+                container.innerHTML += html;
+            });
+            
+            
+            // Update the page info text
+            const totalPages = Math.ceil(allChampions.length / championsPerPage);
+            const pageInfoText = `${startIndex + 1}-${Math.min(endIndex, allChampions.length)} of ${allChampions.length}`;
+            document.querySelectorAll('.pageInfo').forEach(el => el.innerText = pageInfoText);
+            
+            // calls the button update function
+            updateButtonStates();
+
+            //Calls the hover function
+            attachHoverEvents();
+        }
+
+        function attachHoverEvents(){
+            const hoverCard = document.getElementById('hoverCard');
+            const cards = document.querySelectorAll('.client-card');
+
+            cards.forEach(card => {
+                // Click handler for mobile/tablet
+                card.addEventListener('click', async (e) => {
+                    if (window.innerWidth <= 991) { // Bootstrap lg breakpoint
+                        e.preventDefault();
+                        await showChampionModal(card);
+                    }
+                });
+
+                // Hover handlers for desktop
+                card.addEventListener('mouseenter', async () => {
+                    if (window.innerWidth <= 991) return; // Skip hover on mobile/tablet
+
+                    const id = card.getAttribute('data-id');
+                    const name = card.getAttribute('data-name');
+                    const title = card.getAttribute('data-title');
+                    const blurb = card.getAttribute('data-blurb');
+                    const role = card.getAttribute('data-role');
+                    const iconPath = (role && roleIcons[role]) ? roleIcons[role] : '';
+
+                    // render the icon if we have a path; remove if it fails to load
+                    const iconImg = iconPath 
+                        ? `<img src="${iconPath}" alt="${role}" class="hover-role-icon" onerror="this.remove()">`
+                        : '';
+
+                    hoverCard.innerHTML =  `
+                        <div class="hover-header">
+                            ${iconImg}
+                            <div class="hover-header-text">
+                                <h3 class="hover-champion-name">${name}</h3>
+                                <div class="hover-role-text">${role}</div>
+                            </div>
+                        </div>
+                        <h4 class="hover-champion-title">Champion Lore</h4>
+                        <p class="hover-champion-blurb">${blurb}</p>
+                     `; 
+                        
+                    hoverCard.style.display = 'block';
+
+                    //try to get full lore
+                    try {
+                        const lore = await getFullLore(id);
+                        const blurbEl = hoverCard.querySelector('.hover-champion-blurb');
+                        if (blurbEl) blurbEl.textContent = lore;
+                    } catch {}
+                });
+
+                card.addEventListener('mousemove', (e) => {
+                    if (window.innerWidth <= 991) return;
+
+                    const hoverWidth = hoverCard.offsetWidth;
+                    const hoverHeight = hoverCard.offsetHeight;
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    const scrollY = window.scrollY || window.pageYOffset;
+
+                    let left = e.pageX + 15;
+                    let top = e.pageY + 15;
+
+                    // Check right boundary
+                    if (left + hoverWidth > viewportWidth + window.pageXOffset) {
+                        left = e.pageX - hoverWidth - 15;
+                    }
+
+                    // Check bottom boundary
+                    if (top + hoverHeight > scrollY + viewportHeight) {
+                        top = e.pageY - hoverHeight - 15;
+                    }
+
+                    // Prevent going off left edge
+                    if (left < window.pageXOffset) {
+                        left = window.pageXOffset + 10;
+                    }
+
+                    // Prevent going off top edge
+                    if (top < scrollY) {
+                        top = scrollY + 10;
+                    }
+
+                    hoverCard.style.top = top + 'px';
+                    hoverCard.style.left = left + 'px';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    hoverCard.style.display = 'none';
+                });
             });
         }
 
+        //modal for mobile/tablet
+        async function showChampionModal(card) {
+            const id = card.getAttribute('data-id');
+            const name = card.getAttribute('data-name');
+            const title = card.getAttribute('data-title');
+            const blurb = card.getAttribute('data-blurb');
+            const role = card.getAttribute('data-role');
+            const iconPath = (role && roleIcons[role]) ? roleIcons[role] : '';
+
+            const iconImg = iconPath 
+                ? `<img src="${iconPath}" alt="${role}" class="champion-modal-icon hover-role-icon" onerror="this.remove()">`
+                : '';
+
+            const modalHeader = document.getElementById('modalHeader');
+            const modalBody = document.getElementById('modalBody');
+
+            modalHeader.innerHTML = `
+                <div class="champion-modal-header">
+                    ${iconImg}
+                    <div>
+                        <h5 class="champion-modal-name">${name}</h5>
+                        <small class="champion-modal-role">${role}</small>
+                    </div>
+                </div>
+            `;
+
+            modalBody.innerHTML = `
+                <h6 class="champion-modal-lore-header">Champion Lore</h6>
+                <p class="champion-modal-lore">${blurb}</p>
+            `;
+
+            $('#championModal').modal('show');
+
+            // Try to get full lore
+            try {
+                const lore = await getFullLore(id);
+                const loreParagraph = modalBody.querySelector('p:last-child');
+                if (loreParagraph) loreParagraph.textContent = lore;
+            } catch {}
+        }
+
+        //fetch full lore from API
+        async function getFullLore(id) {
+            if (loreCache[id]) return loreCache[id];
+            const res = await fetch(`https://ddragon.leagueoflegends.com/cdn/15.24.1/data/en_US/champion/${id}.json`);
+            const data = await res.json();
+            const lore = data?.data?.[id]?.lore || '';
+            loreCache[id] = lore;
+            return lore;
+        }
+
+        //page buttons
+        function setupPaginationButtons() {
+            const prevButtons = document.querySelectorAll('[data-dir="prev"]');
+            const nextButtons = document.querySelectorAll('[data-dir="next"]');
+
+            prevButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        showPage(currentPage);
+                        document.querySelector('.search-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            nextButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    //cacluate total pages
+                    const totalPages = Math.ceil(allChampions.length / championsPerPage);
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        showPage(currentPage);
+                        document.querySelector('.search-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        //funciton to update button states
+        function updateButtonStates() {
+            const totalPages = Math.ceil(allChampions.length / championsPerPage);
+
+            document.querySelectorAll('[data-dir="prev"]').forEach(btn => {
+                if (currentPage === 1) {
+                    btn.style.opacity = '0.5';
+                    btn.style.cursor = 'not-allowed';
+                } else {
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                }
+            });
+
+            document.querySelectorAll('[data-dir="next"]').forEach(btn => {
+                if (currentPage >= totalPages) {
+                    btn.style.opacity = '0.5';
+                    btn.style.cursor = 'not-allowed';
+                } else {
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                }
+            });
+        }
+
+        //search function
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            
+            function searchChampions() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const container = document.getElementById("contents");
+                container.innerHTML = ""; // Clear old content
+                
+                // Filter champions by name
+                const results = allChampions.filter(champion => 
+                    champion.name.toLowerCase().includes(searchTerm)
+                );
+                
+                // If no results found
+                if (results.length === 0) {
+                    container.innerHTML = "<p style='color: #c8aa6e; text-align: center; padding: 20px; font-family: var(--web-font);'>No champions found</p>";
+                    document.querySelectorAll('.pageInfo').forEach(el => el.innerText = "0 results");
+                    return;
+                }
+                
+                // Show search results
+                results.forEach(champion => {
+                    const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
+                    const role = (champion.tags && champion.tags[0]) || "";
+                    const escapedBlurb = (champion.blurb || '').replace(/"/g, '&quot;');
+                    
+                    const html = `
+                        <div class="col-12 col-md-6 col-lg-3 mb-4">
+                            <div class="client-card" 
+                                data-id="${champion.id}"
+                                data-name="${champion.name}" 
+                                data-title="${champion.title}" 
+                                data-blurb="${escapedBlurb}" 
+                                data-role="${role}">
+                                <img src="${imageUrl}" alt="${champion.name}" loading="lazy">
+                                <div class="overlay"></div>
+                                <div class="card-text-content">
+                                    <h3 class="champion-name">${champion.name}</h3>
+                                    <p class="champion-title">${champion.title}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.innerHTML += html;
+                });
+                
+                // Update pagination info
+                document.querySelectorAll('.pageInfo').forEach(el => el.innerText = `${results.length} results found`);
+
+                // Reattach hover events for new DOM
+                attachHoverEvents();
+            }
+            
+            // Search when button is clicked
+            searchButton.addEventListener('click', searchChampions);
+            
+            // Search as user types
+            searchInput.addEventListener('keyup', searchChampions);
+        }
+
+        // START THE APP
         getChampions();
+        setupPaginationButtons();
+        setupSearch();
 
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-</body>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
 </html>
